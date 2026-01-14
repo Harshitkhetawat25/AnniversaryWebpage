@@ -1151,6 +1151,7 @@ body {
   z-index: 2000;
   padding: 20px;
   animation: fadeIn 0.5s ease;
+  overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -1163,8 +1164,8 @@ body {
 }
 
 .love-letter-container {
-  max-width: 600px;
-  width: 100%;
+  max-width: 550px;
+  width: 95%;
   animation: letterSlideIn 0.8s ease;
 }
 
@@ -1182,7 +1183,7 @@ body {
 .letter-envelope {
   background: linear-gradient(135deg, var(--cream) 0%, var(--peach) 100%);
   border-radius: 20px;
-  padding: 40px;
+  padding: 20px 25px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
   position: relative;
 }
@@ -1198,37 +1199,37 @@ body {
 
 .letter-content h3 {
   font-family: "Great Vibes", cursive;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: var(--pink-dark);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .letter-content p {
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--text-dark);
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .letter-footer {
-  margin-top: 30px;
-  padding-top: 20px;
+  margin-top: 12px;
+  padding-top: 10px;
   border-top: 2px dashed var(--pink-medium);
 }
 
 .letter-signature {
   font-family: "Dancing Script", cursive;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--rose);
   display: block;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 .close-letter {
   display: block;
   width: 100%;
-  margin-top: 20px;
-  padding: 15px 30px;
+  margin-top: 12px;
+  padding: 10px 25px;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   color: white;
