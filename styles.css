@@ -1531,6 +1531,59 @@ body {
   .love-message h2 {
     font-size: 2rem;
   }
+
+  /* Love Letter Popup Mobile Fix */
+  .love-letter-overlay {
+    align-items: flex-start;
+    padding: 10px;
+    padding-top: 20px;
+  }
+
+  .love-letter-container {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .letter-envelope {
+    padding: 15px 18px;
+    border-radius: 15px;
+  }
+
+  .letter-envelope::before {
+    font-size: 2rem;
+    top: -20px;
+  }
+
+  .letter-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .letter-content p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .letter-footer {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  .letter-footer p {
+    font-size: 0.8rem;
+  }
+
+  .letter-signature {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+
+  .close-letter {
+    margin-top: 10px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
 }
 
 /* ==========================================
