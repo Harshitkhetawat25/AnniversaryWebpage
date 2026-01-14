@@ -133,9 +133,9 @@ function closeSurpriseMessage() {
   loveMessage.classList.add("hidden");
   document.body.style.overflow = "auto"; // Re-enable scrolling
 
-  // Pause music
-  bgMusic.pause();
-  bgMusic.currentTime = 0;
+  // // Pause music
+  // bgMusic.pause();
+  // bgMusic.currentTime = 0;
 
   // Reset surprise state so button works again
   surpriseActivated = false;
