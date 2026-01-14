@@ -11,20 +11,52 @@
     />
   </head>
   <body>
-    <!-- Floating Hearts Background -->
-    <div class="floating-hearts" id="floatingHearts"></div>
+    <!-- Question Gate Overlay -->
+    <div class="question-gate-overlay" id="questionGate">
+      <div class="question-modal">
+        <div class="modal-hearts">💕 💖 💗 💖 💕</div>
+        <h2 class="modal-title" id="questionTitle">
+          Are you ready for the surprise?
+        </h2>
+        <p class="question-number" id="questionNumber"></p>
+        <div class="options-container" id="optionsContainer">
+          <!-- Options will be dynamically inserted here -->
+        </div>
+        <div class="modal-decoration">✨ 🌹 ✨</div>
+      </div>
+    </div>
 
-    <!-- Glowing Particles -->
-    <div class="particles" id="particles"></div>
+    <!-- Wrong Answer Overlay -->
+    <div class="wrong-answer-overlay hidden" id="wrongAnswerOverlay">
+      <div class="wrong-answer-content">
+        <span class="wrong-emoji">💔</span>
+        <h2>Uffo Babygirl, try again 💔</h2>
+        <p>Let's start from the beginning...</p>
+      </div>
+    </div>
 
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-      <source
-        src="hum_tum.mp3"
-        type="audio/mpeg"
-      />
-      <!-- Replace with your romantic music file -->
-    </audio>
+    <!-- Celebration Overlay -->
+    <div class="celebration-overlay hidden" id="celebrationOverlay">
+      <div class="confetti-container" id="confettiContainer"></div>
+      <div class="celebration-content">
+        <h2>🎉 You Did It! 🎉</h2>
+        <p>Welcome to your surprise, my love! 💖</p>
+      </div>
+    </div>
+
+    <!-- Main Website Content (Hidden Initially) -->
+    <div class="main-content hidden" id="mainContent">
+      <!-- Floating Hearts Background -->
+      <div class="floating-hearts" id="floatingHearts"></div>
+
+      <!-- Glowing Particles -->
+      <div class="particles" id="particles"></div>
+
+      <!-- Background Music -->
+      <audio id="bgMusic" loop>
+        <source src="humtum.mp3" type="audio/mpeg" />
+        <!-- Replace with your romantic music file -->
+      </audio>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -54,125 +86,127 @@
       </div>
     </section>
 
-    <!-- Countdown Section -->
-    <section class="countdown-section" id="countdown">
-      <h2 class="section-title">Our Love Story Timer 💕</h2>
-      <p class="countdown-subtitle">
-        Time since we started our beautiful journey together
-      </p>
-      <div class="countdown-container">
-        <div class="countdown-item">
-          <span class="countdown-number" id="years">0</span>
-          <span class="countdown-label">Years</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="months">0</span>
-          <span class="countdown-label">Months</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="days">0</span>
-          <span class="countdown-label">Days</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="hours">0</span>
-          <span class="countdown-label">Hours</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="minutes">0</span>
-          <span class="countdown-label">Minutes</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="seconds">0</span>
-          <span class="countdown-label">Seconds</span>
-        </div>
-      </div>
-
-      <!-- Total Time Counters -->
-      <div class="total-counters-section">
-        <h3 class="total-counters-title">💫 Our Journey in Numbers 💫</h3>
-        <div class="total-counters-container">
-          <div class="total-counter-item">
-            <span class="total-counter-number" id="totalDays">0</span>
-            <span class="total-counter-label"> Days Together</span>
+      <!-- Countdown Section -->
+      <section class="countdown-section" id="countdown">
+        <h2 class="section-title">Our Love Story Timer 💕</h2>
+        <p class="countdown-subtitle">
+          Time since we started our beautiful journey together
+        </p>
+        <div class="countdown-container">
+          <div class="countdown-item">
+            <span class="countdown-number" id="years">0</span>
+            <span class="countdown-label">Years</span>
           </div>
-          <div class="total-counter-item">
-            <span class="total-counter-number" id="totalHours">0</span>
-            <span class="total-counter-label"> Hours</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="months">0</span>
+            <span class="countdown-label">Months</span>
           </div>
-          <div class="total-counter-item">
-            <span class="total-counter-number" id="totalMinutes">0</span>
-            <span class="total-counter-label"> Minutes</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">0</span>
+            <span class="countdown-label">Days</span>
           </div>
-          <div class="total-counter-item">
-            <span class="total-counter-number" id="totalSeconds">0</span>
-            <span class="total-counter-label"> Seconds</span>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">0</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">0</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">0</span>
+            <span class="countdown-label">Seconds</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Photo Slideshow Section -->
-    <section class="slideshow-section" id="gallery">
-      <h2 class="section-title">Our Beautiful Memories 📸</h2>
-      <div class="slideshow-container">
-        <div class="slide fade active">
-          <img
-            src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800"
-            alt="Memory 1"
-          />
-          <div class="slide-caption">Our first adventure together 💕</div>
+        <!-- Total Time Counters -->
+        <div class="total-counters-section">
+          <h3 class="total-counters-title">💫 Our Journey in Numbers 💫</h3>
+          <div class="total-counters-container">
+            <div class="total-counter-item">
+              <span class="total-counter-number" id="totalDays">0</span>
+              <span class="total-counter-label"> Days Together</span>
+            </div>
+            <div class="total-counter-item">
+              <span class="total-counter-number" id="totalHours">0</span>
+              <span class="total-counter-label"> Hours</span>
+            </div>
+            <div class="total-counter-item">
+              <span class="total-counter-number" id="totalMinutes">0</span>
+              <span class="total-counter-label"> Minutes</span>
+            </div>
+            <div class="total-counter-item">
+              <span class="total-counter-number" id="totalSeconds">0</span>
+              <span class="total-counter-label"> Seconds</span>
+            </div>
+          </div>
         </div>
-        <div class="slide fade">
-          <img
-            src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800"
-            alt="Memory 2"
-          />
-          <div class="slide-caption">Moments that made us smile 😊</div>
-        </div>
-        <div class="slide fade">
-          <img
-            src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800"
-            alt="Memory 3"
-          />
-          <div class="slide-caption">Love in every glance 💖</div>
-        </div>
-        <div class="slide fade">
-          <img
-            src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800"
-            alt="Memory 4"
-          />
-          <div class="slide-caption">Together is my favorite place 🌸</div>
-        </div>
-        <div class="slide fade">
-          <img
-            src="https://images.unsplash.com/photo-1501901609772-df0848060b33?w=800"
-            alt="Memory 5"
-          />
-          <div class="slide-caption">Every moment with you is precious ✨</div>
-        </div>
-        <div class="slide fade">
-          <img
-            src="https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?w=800"
-            alt="Memory 6"
-          />
-          <div class="slide-caption">My heart belongs to you 💗</div>
+      </section>
+
+      <!-- Photo Slideshow Section -->
+      <section class="slideshow-section" id="gallery">
+        <h2 class="section-title">Our Beautiful Memories 📸</h2>
+        <div class="slideshow-container">
+          <div class="slide fade active">
+            <img
+              src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800"
+              alt="Memory 1"
+            />
+            <div class="slide-caption">Our first adventure together 💕</div>
+          </div>
+          <div class="slide fade">
+            <img
+              src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800"
+              alt="Memory 2"
+            />
+            <div class="slide-caption">Moments that made us smile 😊</div>
+          </div>
+          <div class="slide fade">
+            <img
+              src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800"
+              alt="Memory 3"
+            />
+            <div class="slide-caption">Love in every glance 💖</div>
+          </div>
+          <div class="slide fade">
+            <img
+              src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800"
+              alt="Memory 4"
+            />
+            <div class="slide-caption">Together is my favorite place 🌸</div>
+          </div>
+          <div class="slide fade">
+            <img
+              src="https://images.unsplash.com/photo-1501901609772-df0848060b33?w=800"
+              alt="Memory 5"
+            />
+            <div class="slide-caption">
+              Every moment with you is precious ✨
+            </div>
+          </div>
+          <div class="slide fade">
+            <img
+              src="https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?w=800"
+              alt="Memory 6"
+            />
+            <div class="slide-caption">My heart belongs to you 💗</div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button class="slide-arrow prev" onclick="changeSlide(-1)">❮</button>
+          <button class="slide-arrow next" onclick="changeSlide(1)">❯</button>
         </div>
 
-        <!-- Navigation Arrows -->
-        <button class="slide-arrow prev" onclick="changeSlide(-1)">❮</button>
-        <button class="slide-arrow next" onclick="changeSlide(1)">❯</button>
-      </div>
-
-      <!-- Navigation Dots -->
-      <div class="slide-dots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
-        <span class="dot" onclick="goToSlide(3)"></span>
-        <span class="dot" onclick="goToSlide(4)"></span>
-        <span class="dot" onclick="goToSlide(5)"></span>
-      </div>
-    </section>
+        <!-- Navigation Dots -->
+        <div class="slide-dots">
+          <span class="dot active" onclick="goToSlide(0)"></span>
+          <span class="dot" onclick="goToSlide(1)"></span>
+          <span class="dot" onclick="goToSlide(2)"></span>
+          <span class="dot" onclick="goToSlide(3)"></span>
+          <span class="dot" onclick="goToSlide(4)"></span>
+          <span class="dot" onclick="goToSlide(5)"></span>
+        </div>
+      </section>
 
     <!-- Love Lines Section -->
     <section class="love-lines-section" id="lovelines">
@@ -222,80 +256,82 @@
           </div>
         </div>
 
-        <!-- Open When You Miss Me Button -->
-        <div class="surprise-card">
-          <button class="miss-me-btn" id="missMeBtn">
-            <span>Open When You Miss Me 💖</span>
+          <!-- Open When You Miss Me Button -->
+          <div class="surprise-card">
+            <button class="miss-me-btn" id="missMeBtn">
+              <span>Open When You Miss Me 💖</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Love Letter Popup -->
+      <div class="love-letter-overlay hidden" id="loveLetter">
+        <div class="love-letter-container">
+          <div class="letter-envelope">
+            <div class="letter-content">
+              <h3>My Dearest Love,</h3>
+              <p>
+                If you're reading this, it means you miss me. And I want you to
+                know that wherever I am, whatever I'm doing, my heart is always
+                with you.
+              </p>
+              <p>
+                You are my first thought in the morning and my last thought at
+                night. You are the smile I can't control and the peace I never
+                knew I needed.
+              </p>
+              <p>
+                Remember, distance means nothing when someone means everything.
+                I carry you with me in every heartbeat.
+              </p>
+              <p>
+                Close your eyes, take a deep breath, and feel my love wrapping
+                around you like a warm embrace. I'm always with you, even when
+                we're apart.
+              </p>
+              <div class="letter-footer">
+                <p>I love you to the moon and back, infinity times! 🌙</p>
+                <span class="letter-signature"
+                  >Forever & Always Yours,<br />❤️</span
+                >
+              </div>
+            </div>
+          </div>
+          <button class="close-letter" id="closeLetter">
+            Close with a Kiss 💋
           </button>
         </div>
       </div>
-    </section>
 
-    <!-- Love Letter Popup -->
-    <div class="love-letter-overlay hidden" id="loveLetter">
-      <div class="love-letter-container">
-        <div class="letter-envelope">
-          <div class="letter-content">
-            <h3>My Dearest Love,</h3>
-            <p>
-              If you're reading this, it means you miss me. And I want you to
-              know that wherever I am, whatever I'm doing, my heart is always
-              with you.
-            </p>
-            <p>
-              You are my first thought in the morning and my last thought at
-              night. You are the smile I can't control and the peace I never
-              knew I needed.
-            </p>
-            <p>
-              Remember, distance means nothing when someone means everything. I
-              carry you with me in every heartbeat.
-            </p>
-            <p>
-              Close your eyes, take a deep breath, and feel my love wrapping
-              around you like a warm embrace. I'm always with you, even when
-              we're apart.
-            </p>
-            <div class="letter-footer">
-              <p>I love you to the moon and back, infinity times! 🌙</p>
-              <span class="letter-signature"
-                >Forever & Always Yours,<br />❤️</span
-              >
-            </div>
+      <!-- Final Love Section -->
+      <section class="final-section" id="final">
+        <div class="final-content">
+          <div class="final-hearts">
+            <span>💕</span><span>💖</span><span>💗</span><span>💕</span
+            ><span>💖</span>
           </div>
+          <h2 class="final-message">
+            "No matter where life takes us, my heart will always choose you."
+          </h2>
+          <p class="final-submessage">
+            You are my today and all of my tomorrows. Every love story is
+            beautiful, but ours is my favorite.
+          </p>
+          <div class="signature-container">
+            <span class="final-signature">Forever Yours</span>
+            <span class="heart-beat">❤️</span>
+          </div>
+          <div class="floating-rose">🌹</div>
         </div>
-        <button class="close-letter" id="closeLetter">
-          Close with a Kiss 💋
-        </button>
-      </div>
+      </section>
+
+      <!-- Scroll to Top Button -->
+      <button class="scroll-top" id="scrollTop">
+        <span>💕</span>
+      </button>
     </div>
-
-    <!-- Final Love Section -->
-    <section class="final-section" id="final">
-      <div class="final-content">
-        <div class="final-hearts">
-          <span>💕</span><span>💖</span><span>💗</span><span>💕</span
-          ><span>💖</span>
-        </div>
-        <h2 class="final-message">
-          "No matter where life takes us, my heart will always choose you."
-        </h2>
-        <p class="final-submessage">
-          You are my today and all of my tomorrows. Every love story is
-          beautiful, but ours is my favorite.
-        </p>
-        <div class="signature-container">
-          <span class="final-signature">Forever Yours</span>
-          <span class="heart-beat">❤️</span>
-        </div>
-        <div class="floating-rose">🌹</div>
-      </div>
-    </section>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop">
-      <span>💕</span>
-    </button>
+    <!-- End of main-content -->
 
     <script src="script.js"></script>
   </body>
