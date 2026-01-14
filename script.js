@@ -120,16 +120,29 @@ function activateSurprise() {
   // Show love message after a short delay
   setTimeout(() => {
     loveMessage.classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // Prevent scrolling
   }, 1000);
-
-  // Hide love message when clicking outside
-  loveMessage.addEventListener("click", () => {
-    loveMessage.classList.add("hidden");
-  });
 
   // Change button text
   surpriseBtn.innerHTML =
     '<span>You Found My Heart 💕</span><div class="btn-glow"></div>';
+}
+
+// Close surprise message
+function closeSurpriseMessage() {
+  loveMessage.classList.add("hidden");
+  document.body.style.overflow = "auto"; // Re-enable scrolling
+
+  // Pause music
+  bgMusic.pause();
+  bgMusic.currentTime = 0;
+
+  // Reset surprise state so button works again
+  surpriseActivated = false;
+
+  // Reset button text
+  surpriseBtn.innerHTML =
+    '<span>Click for a Surprise 💌</span><div class="btn-glow"></div>';
 }
 
 // Burst hearts from bottom
@@ -560,6 +573,12 @@ function init() {
   // Event Listeners
   if (surpriseBtn) {
     surpriseBtn.addEventListener("click", activateSurprise);
+  }
+
+  // Close surprise message button
+  const closeSurpriseBtn = document.getElementById("closeSurprise");
+  if (closeSurpriseBtn) {
+    closeSurpriseBtn.addEventListener("click", closeSurpriseMessage);
   }
 
   if (secretHeart) {

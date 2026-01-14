@@ -327,6 +327,29 @@ body {
   font-family: "Dancing Script", cursive;
   font-size: 1.5rem;
   color: var(--rose);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.close-surprise {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(135deg, var(--pink-dark) 0%, var(--rose) 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+}
+
+.close-surprise:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
 }
 
 .hidden {
