@@ -7,7 +7,6 @@
 // QUESTION GATE SYSTEM
 // ==========================================
 
-
 const questions = [
   {
     question: "Are you ready for the surprise?",
@@ -82,6 +81,22 @@ const questions = [
 
 let currentQuestion = 0;
 
+// Sound Effects
+const correctSound = document.getElementById("correctSound");
+const wrongSound = document.getElementById("wrongSound");
+const celebrationSound = document.getElementById("celebrationSound");
+
+// Play sound helper function
+function playSound(sound) {
+  if (sound) {
+    sound.currentTime = 0;
+    sound.volume = 0.5;
+    sound.play().catch(() => {
+      console.log("Sound autoplay blocked");
+    });
+  }
+}
+
 // DOM Elements for Question Gate
 const questionGate = document.getElementById("questionGate");
 const questionTitle = document.getElementById("questionTitle");
@@ -129,6 +144,9 @@ function handleAnswer(selectedOption) {
   const isCorrect = q.correctAnswers.includes(selectedOption);
 
   if (isCorrect) {
+    // Play correct sound
+    playSound(correctSound);
+
     // Correct answer - burst hearts animation
     createGateBurstHearts();
 
@@ -168,6 +186,9 @@ function createGateBurstHearts() {
 
 // Show wrong answer overlay
 function showWrongAnswer() {
+  // Play wrong sound
+  playSound(wrongSound);
+
   wrongAnswerOverlay.classList.remove("hidden");
 
   // Wait 2.5 seconds, then reset to question 1
@@ -180,6 +201,9 @@ function showWrongAnswer() {
 
 // Show celebration and reveal website
 function showCelebration() {
+  // Play celebration sound
+  playSound(celebrationSound);
+
   questionGate.classList.add("hidden");
   celebrationOverlay.classList.remove("hidden");
 

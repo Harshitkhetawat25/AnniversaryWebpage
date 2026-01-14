@@ -11,6 +11,29 @@
     />
   </head>
   <body>
+    <!-- Sound Effects -->
+    <audio id="correctSound" preload="auto">
+      <source src="correct.mp3" type="audio/mpeg" />
+      <source
+        src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="wrongSound" preload="auto">
+      <source src="wrong.mp3" type="audio/mpeg" />
+      <source
+        src="https://assets.mixkit.co/active_storage/sfx/2955/2955-preview.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="celebrationSound" preload="auto">
+      <source src="celebration.mp3" type="audio/mpeg" />
+      <source
+        src="https://cdn.freesound.org/previews/270/270402_5123851-lq.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
     <!-- Question Gate Overlay -->
     <div class="question-gate-overlay" id="questionGate">
       <div class="question-modal">
@@ -151,10 +174,7 @@
         <h2 class="section-title">Our Beautiful Memories 📸</h2>
         <div class="slideshow-container">
           <div class="slide fade active">
-            <img
-              src="/images/1.jpg"
-              alt="Memory 1"
-            />
+            <img src="/images/1.jpg" alt="Memory 1" />
             <div class="slide-caption">Our first adventure together 💕</div>
           </div>
           <div class="slide fade">
