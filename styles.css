@@ -1,0 +1,1160 @@
+/* ==========================================
+   ROMANTIC WEBSITE STYLES
+   A Love Surprise for Someone Special ❤️
+   ========================================== */
+
+/* CSS Variables - Romantic Color Palette */
+:root {
+  --pink-light: #ffe4ec;
+  --pink-medium: #ffb6c1;
+  --pink-dark: #ff69b4;
+  --lavender: #e6e6fa;
+  --lavender-dark: #dda0dd;
+  --peach: #ffdab9;
+  --peach-dark: #ffcba4;
+  --soft-red: #ff6b6b;
+  --rose: #ff007f;
+  --white: #ffffff;
+  --cream: #fff5ee;
+  --text-dark: #4a4a4a;
+  --text-light: #6b6b6b;
+  --gold: #ffd700;
+  --shadow-color: rgba(255, 105, 180, 0.3);
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--pink-light) 0%,
+    var(--lavender) 50%,
+    var(--peach) 100%
+  );
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text-dark);
+}
+
+/* ==========================================
+   FLOATING HEARTS BACKGROUND
+   ========================================== */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 8s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   GLOWING PARTICLES
+   ========================================== */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 30px;
+  box-shadow: 0 20px 60px var(--shadow-color);
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--pink-dark);
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+  line-height: 1.3;
+}
+
+.heart-icon {
+  display: inline-block;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+}
+
+.typewriter {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--text-light);
+  min-height: 40px;
+  margin-bottom: 30px;
+}
+
+.typewriter::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+  color: var(--pink-dark);
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Surprise Button */
+.surprise-btn {
+  position: relative;
+  padding: 18px 45px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, var(--pink-dark) 0%, var(--rose) 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+}
+
+.surprise-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.5);
+}
+
+.surprise-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  to {
+    left: 100%;
+  }
+}
+
+.btn-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 105, 180, 0.4) 0%,
+    transparent 70%
+  );
+  animation: pulse 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Love Message (Hidden Initially) */
+.love-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 50px;
+  border-radius: 30px;
+  box-shadow: 0 30px 80px rgba(255, 105, 180, 0.5);
+  z-index: 1000;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  animation: loveMessageAppear 1s ease-out;
+}
+
+@keyframes loveMessageAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.love-message h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  color: var(--pink-dark);
+  margin-bottom: 20px;
+}
+
+.love-message p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.love-message .signature {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  color: var(--rose);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================
+   COUNTDOWN SECTION
+   ========================================== */
+.countdown-section {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.section-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--pink-dark);
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+  text-align: center;
+}
+
+.countdown-subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 40px;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.countdown-item {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  min-width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-10px);
+}
+
+.countdown-number {
+  display: block;
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--rose);
+  line-height: 1;
+}
+
+.countdown-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================
+   TOTAL COUNTERS SECTION
+   ========================================== */
+.total-counters-section {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 2px dashed rgba(255, 182, 193, 0.3);
+}
+
+.total-counters-title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--pink-dark);
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+}
+
+.total-counters-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.total-counter-item {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 228, 236, 0.9) 100%
+  );
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.25);
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 2px solid rgba(255, 182, 193, 0.3);
+}
+
+.total-counter-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.35);
+  border-color: var(--pink-medium);
+}
+
+.total-counter-number {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--rose);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 3px rgba(255, 0, 127, 0.2);
+}
+
+.total-counter-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+/* ==========================================
+   SLIDESHOW SECTION
+   ========================================== */
+.slideshow-section {
+  padding: 80px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px var(--shadow-color);
+}
+
+.slide {
+  display: none;
+  position: relative;
+  animation: fadeSlide 0.8s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.slide:hover img {
+  transform: scale(1.05);
+}
+
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Slideshow Arrows */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--pink-dark);
+  border: none;
+  padding: 15px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.slide-arrow:hover {
+  background: var(--pink-dark);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slide-arrow.prev {
+  left: 15px;
+}
+
+.slide-arrow.next {
+  right: 15px;
+}
+
+/* Slideshow Dots */
+.slide-dots {
+  text-align: center;
+  padding: 20px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background: var(--pink-medium);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover,
+.dot.active {
+  background: var(--pink-dark);
+  transform: scale(1.3);
+}
+
+/* ==========================================
+   LOVE LINES SECTION
+   ========================================== */
+.love-lines-section {
+  padding: 80px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.love-lines-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 30px;
+}
+
+.love-line {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.love-line.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.love-line:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px var(--shadow-color);
+}
+
+.line-heart {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 15px;
+  animation: heartBeat 2s infinite;
+}
+
+.love-line p {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* ==========================================
+   SURPRISE SECTION
+   ========================================== */
+.surprise-section {
+  padding: 80px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.surprise-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.surprise-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px var(--shadow-color);
+  text-align: center;
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+/* Secret Heart */
+.secret-heart {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.secret-heart:hover {
+  transform: scale(1.1);
+}
+
+.big-heart {
+  font-size: 5rem;
+  display: block;
+  animation: heartBeat 1.5s infinite;
+  transition: all 0.3s ease;
+}
+
+.secret-heart:hover .big-heart {
+  filter: drop-shadow(0 0 20px var(--pink-dark));
+}
+
+.secret-heart p {
+  margin-top: 15px;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.secret-message {
+  animation: fadeInUp 0.8s ease;
+}
+
+.secret-message p {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.4rem;
+  color: var(--rose);
+  line-height: 1.6;
+}
+
+/* Miss Me Button */
+.miss-me-btn {
+  padding: 20px 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    var(--lavender-dark) 0%,
+    var(--pink-dark) 100%
+  );
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(221, 160, 221, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.miss-me-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(221, 160, 221, 0.5);
+}
+
+.miss-me-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 60%
+  );
+  animation: rotateGlow 3s linear infinite;
+}
+
+@keyframes rotateGlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   LOVE LETTER POPUP
+   ========================================== */
+.love-letter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.love-letter-container {
+  max-width: 600px;
+  width: 100%;
+  animation: letterSlideIn 0.8s ease;
+}
+
+@keyframes letterSlideIn {
+  from {
+    transform: translateY(-100px) rotateX(-20deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotateX(0);
+    opacity: 1;
+  }
+}
+
+.letter-envelope {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--peach) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.letter-envelope::before {
+  content: "💌";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+}
+
+.letter-content h3 {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  color: var(--pink-dark);
+  margin-bottom: 20px;
+}
+
+.letter-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.letter-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px dashed var(--pink-medium);
+}
+
+.letter-signature {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  color: var(--rose);
+  display: block;
+  margin-top: 15px;
+}
+
+.close-letter {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(135deg, var(--pink-dark) 0%, var(--rose) 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-letter:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
+}
+
+/* ==========================================
+   FINAL SECTION
+   ========================================== */
+.final-section {
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 182, 193, 0.3) 100%
+  );
+}
+
+.final-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 60px 40px;
+  border-radius: 40px;
+  box-shadow: 0 30px 80px var(--shadow-color);
+}
+
+.final-hearts span {
+  font-size: 2rem;
+  margin: 0 10px;
+  animation: heartBeat 1.5s infinite;
+  display: inline-block;
+}
+
+.final-hearts span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.final-hearts span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.final-hearts span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.final-hearts span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.final-message {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--pink-dark);
+  margin: 30px 0;
+  line-height: 1.4;
+}
+
+.final-submessage {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.signature-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.final-signature {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  color: var(--rose);
+}
+
+.heart-beat {
+  font-size: 2.5rem;
+  animation: heartBeat 1s infinite;
+}
+
+.floating-rose {
+  font-size: 3rem;
+  margin-top: 30px;
+  animation: floatRose 3s ease-in-out infinite;
+}
+
+@keyframes floatRose {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+/* ==========================================
+   SCROLL TO TOP BUTTON
+   ========================================== */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--pink-dark) 0%, var(--rose) 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* ==========================================
+   BURST HEARTS ANIMATION
+   ========================================== */
+.burst-heart {
+  position: fixed;
+  font-size: 30px;
+  animation: burstUp 2s ease-out forwards;
+  z-index: 999;
+  pointer-events: none;
+}
+
+@keyframes burstUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-300px) scale(0.5) rotate(360deg);
+  }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+
+  .countdown-container {
+    gap: 15px;
+  }
+
+  .countdown-item {
+    padding: 15px 20px;
+    min-width: 100px;
+  }
+
+  .countdown-number {
+    font-size: 2rem;
+  }
+
+  .total-counters-section {
+    margin-top: 40px;
+    padding-top: 40px;
+  }
+
+  .total-counters-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .total-counter-item {
+    padding: 20px 15px;
+  }
+
+  .total-counter-number {
+    font-size: 1.5rem;
+  }
+
+  .total-counter-label {
+    font-size: 0.75rem;
+  }
+
+  .slide img {
+    height: 350px;
+  }
+
+  .slide-arrow {
+    padding: 10px 15px;
+    font-size: 1.2rem;
+  }
+
+  .surprise-card {
+    padding: 30px 20px;
+  }
+
+  .letter-envelope {
+    padding: 30px 20px;
+  }
+
+  .final-content {
+    padding: 40px 25px;
+  }
+
+  .scroll-top {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+
+  .surprise-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+
+  .countdown-item {
+    min-width: 80px;
+    padding: 12px 15px;
+  }
+
+  .countdown-number {
+    font-size: 1.8rem;
+  }
+
+  .countdown-label {
+    font-size: 0.75rem;
+  }
+
+  .total-counters-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .total-counter-item {
+    padding: 18px 12px;
+  }
+
+  .total-counter-number {
+    font-size: 1.3rem;
+  }
+
+  .total-counter-label {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  .slide img {
+    height: 280px;
+  }
+
+  .slide-caption {
+    font-size: 1.2rem;
+    padding: 20px;
+  }
+
+  .love-line {
+    padding: 20px;
+  }
+
+  .big-heart {
+    font-size: 3.5rem;
+  }
+
+  .love-message {
+    padding: 30px 20px;
+  }
+
+  .love-message h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ==========================================
+   PRINT STYLES (Hide interactive elements)
+   ========================================== */
+@media print {
+  .floating-hearts,
+  .particles,
+  .surprise-btn,
+  .slide-arrow,
+  .slide-dots,
+  .scroll-top,
+  .miss-me-btn,
+  .secret-heart {
+    display: none !important;
+  }
+}
