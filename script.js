@@ -7,14 +7,6 @@
 // QUESTION GATE SYSTEM
 // ==========================================
 
-// Set the date you started dating (Year, Month (0-11), Day)
-const RELATIONSHIP_START_DATE = new Date(2025, 3, 15); // January 15, 2023
-
-// Typewriter text to display
-const TYPEWRITER_TEXT = "Thinking of you... Lolly, so I built this for you.";
-
-// Array of heart emojis for floating effect
-const HEART_EMOJIS = ["💕", "💖", "💗", "💓", "💝", "💘", "❤️", "🩷", "🩵", "💜"];
 
 const questions = [
   {
