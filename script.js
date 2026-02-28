@@ -786,7 +786,6 @@ function initMainWebsite() {
     document.body.style.overflow = "hidden";
     createProposalStars();
     burstHearts(30);
-    playSound(celebrationSound);
   }
 
   // Close Proposal
@@ -814,8 +813,6 @@ function initMainWebsite() {
         setTimeout(() => heart.remove(), 2500);
       }, i * 30);
     }
-
-    playSound(celebrationSound);
   }
 
   // Close Yes overlay

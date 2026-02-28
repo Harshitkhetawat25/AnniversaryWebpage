@@ -2167,6 +2167,18 @@ body {
   backdrop-filter: blur(10px);
   line-height: 1.7;
 }
+.yes-screenshot-msg{
+   font-family: "Dancing Script", cursive;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 25px 0;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  line-height: 1.7;
+}
 
 .yes-close-btn {
   padding: 15px 40px;
