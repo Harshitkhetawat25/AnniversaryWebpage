@@ -63,7 +63,8 @@
   max-width: 550px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 25px 80px rgba(255, 0, 127, 0.4),
+  box-shadow:
+    0 25px 80px rgba(255, 0, 127, 0.4),
     0 0 60px rgba(255, 105, 180, 0.3);
   animation: modalPulse 2s ease-in-out infinite;
   border: 3px solid rgba(255, 105, 180, 0.3);
@@ -869,6 +870,7 @@ body {
   overflow: hidden;
   border-radius: 30px;
   box-shadow: 0 20px 60px var(--shadow-color);
+  background: #000;
 }
 
 .slide {
@@ -894,10 +896,12 @@ body {
 
 .slide img {
   width: 100%;
-  height: 500px;
-  object-fit: cover;
+  height: auto;
+  max-height: 550px;
+  object-fit: contain;
   display: block;
   transition: transform 0.5s ease;
+  background: #000;
 }
 
 .slide:hover img {
@@ -1438,7 +1442,7 @@ body {
   }
 
   .slide img {
-    height: 350px;
+    max-height: 400px;
   }
 
   .slide-arrow {
@@ -1508,7 +1512,7 @@ body {
   }
 
   .slide img {
-    height: 280px;
+    max-height: 300px;
   }
 
   .slide-caption {
@@ -1583,6 +1587,681 @@ body {
     margin-top: 10px;
     padding: 8px 20px;
     font-size: 0.9rem;
+  }
+}
+
+/* ==========================================
+   PROPOSAL SECTION
+   ========================================== */
+.proposal-section {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.proposal-trigger-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.proposal-subtitle {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.4rem;
+  color: var(--text-light);
+  margin-bottom: 40px;
+}
+
+.proposal-trigger-btn {
+  position: relative;
+  padding: 22px 50px;
+  font-family: "Great Vibes", cursive;
+  font-size: 1.8rem;
+  color: white;
+  background: linear-gradient(135deg, #ff007f, #ff69b4, #ff1493);
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  box-shadow:
+    0 10px 40px rgba(255, 0, 127, 0.5),
+    0 0 80px rgba(255, 105, 180, 0.3);
+  transition: all 0.4s ease;
+  animation: proposalBtnPulse 2s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.proposal-trigger-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow:
+    0 15px 50px rgba(255, 0, 127, 0.6),
+    0 0 100px rgba(255, 105, 180, 0.5);
+}
+
+@keyframes proposalBtnPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 40px rgba(255, 0, 127, 0.5),
+      0 0 80px rgba(255, 105, 180, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 15px 60px rgba(255, 0, 127, 0.7),
+      0 0 120px rgba(255, 105, 180, 0.5);
+  }
+}
+
+.ring-emoji {
+  font-size: 1.5rem;
+  margin: 0 8px;
+  display: inline-block;
+  animation: ringBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes ringBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-10deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(10deg);
+  }
+}
+
+.proposal-btn-text {
+  letter-spacing: 1px;
+}
+
+/* Proposal Overlay */
+.proposal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(20, 0, 30, 0.95) 0%,
+    rgba(50, 0, 50, 0.98) 50%,
+    rgba(10, 0, 20, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10005;
+  animation: proposalFadeIn 1s ease;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.proposal-overlay.hidden {
+  display: none;
+}
+
+@keyframes proposalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Twinkling Stars Background */
+.proposal-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.proposal-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* Proposal Card */
+.proposal-card {
+  position: relative;
+  max-width: 650px;
+  width: 95%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 228, 236, 0.1),
+    rgba(255, 182, 193, 0.15)
+  );
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  border-radius: 30px;
+  padding: 50px 40px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 30px 80px rgba(255, 0, 127, 0.3),
+    inset 0 0 60px rgba(255, 105, 180, 0.05);
+  z-index: 1;
+  animation: proposalCardIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  color: white;
+}
+
+@keyframes proposalCardIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Ring Box Animation */
+.proposal-ring-box {
+  margin: 0 auto 30px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+.ring-box-lid {
+  width: 90px;
+  height: 35px;
+  background: linear-gradient(135deg, #8b0000, #dc143c);
+  border-radius: 10px 10px 0 0;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  animation: lidOpen 2s ease-in-out 1.5s forwards;
+  transform-origin: bottom center;
+}
+
+@keyframes lidOpen {
+  0% {
+    transform: rotateX(0deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(-120deg) translateY(-20px);
+  }
+  100% {
+    transform: rotateX(-120deg) translateY(-20px);
+  }
+}
+
+.ring-box-base {
+  width: 90px;
+  height: 55px;
+  background: linear-gradient(135deg, #8b0000, #b22222);
+  border-radius: 0 0 10px 10px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(139, 0, 0, 0.5);
+}
+
+.proposal-ring {
+  font-size: 2.5rem;
+  animation: ringGlow 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+}
+
+@keyframes ringGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1));
+    transform: scale(1.15);
+  }
+}
+
+/* Proposal Text */
+.proposal-text-container {
+  animation: proposalTextFade 1.5s ease 2s both;
+}
+
+@keyframes proposalTextFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.proposal-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.5rem, 7vw, 3.5rem);
+  color: #ff69b4;
+  margin-bottom: 25px;
+  text-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+}
+
+.proposal-letter {
+  margin-bottom: 30px;
+}
+
+.proposal-letter p {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 12px;
+}
+
+.proposal-letter p strong {
+  color: #ff69b4;
+  font-size: 1.25rem;
+}
+
+.proposal-highlight {
+  color: var(--gold) !important;
+  font-size: 1.3rem !important;
+  margin-top: 20px !important;
+}
+
+.proposal-question-box {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 127, 0.15),
+    rgba(255, 105, 180, 0.1)
+  );
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  border-radius: 25px;
+  padding: 35px 30px;
+  margin: 30px 0;
+  animation: questionBoxGlow 3s ease-in-out infinite;
+}
+
+@keyframes questionBoxGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 60px rgba(255, 0, 127, 0.4),
+      0 0 100px rgba(255, 105, 180, 0.2);
+  }
+}
+
+.proposal-main-question {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: #ffb6c1;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+}
+
+.proposal-sub {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.proposal-forever {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: #ff69b4;
+  margin-top: 25px;
+  text-shadow: 0 0 40px rgba(255, 105, 180, 0.6);
+  animation: foreverPulse 2s ease-in-out infinite;
+}
+
+@keyframes foreverPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 60px rgba(255, 105, 180, 0.8);
+  }
+}
+
+/* Proposal Buttons */
+.proposal-buttons {
+  margin-top: 30px;
+}
+
+.proposal-yes-btn {
+  padding: 18px 60px;
+  font-family: "Great Vibes", cursive;
+  font-size: 1.8rem;
+  color: white;
+  background: linear-gradient(135deg, #ff007f, #ff69b4);
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(255, 0, 127, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: yesBtnPulse 1.5s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.proposal-yes-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes yesBtnPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 10px 40px rgba(255, 0, 127, 0.5);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 15px 60px rgba(255, 0, 127, 0.7);
+  }
+}
+
+.proposal-yes-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 20px 60px rgba(255, 0, 127, 0.7);
+}
+
+.proposal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 5;
+}
+
+.proposal-close-btn:hover {
+  color: white;
+}
+
+/* Yes Overlay */
+.proposal-yes-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 0, 127, 0.95),
+    rgba(200, 0, 80, 0.98)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10010;
+  animation: yesOverlayIn 0.8s ease;
+}
+
+.proposal-yes-overlay.hidden {
+  display: none;
+}
+
+@keyframes yesOverlayIn {
+  from {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.proposal-yes-content {
+  text-align: center;
+  color: white;
+  padding: 40px;
+  animation: yesContentBounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s
+    both;
+  position: relative;
+}
+
+@keyframes yesContentBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.yes-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(3rem, 8vw, 5rem);
+  margin-bottom: 15px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  animation: yesHeadingGlow 2s ease-in-out infinite;
+}
+
+@keyframes yesHeadingGlow {
+  0%,
+  100% {
+    text-shadow:
+      3px 3px 6px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow:
+      3px 3px 6px rgba(0, 0, 0, 0.3),
+      0 0 60px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.yes-subtext {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.yes-emojis {
+  font-size: 3rem;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.yes-emojis span {
+  animation: emojiDance 1s ease-in-out infinite;
+}
+
+.yes-emojis span:nth-child(1) {
+  animation-delay: 0s;
+}
+.yes-emojis span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.yes-emojis span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.yes-emojis span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+.yes-emojis span:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+@keyframes emojiDance {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(-10deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+}
+
+.yes-promise {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 25px 0;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  line-height: 1.7;
+}
+
+.yes-close-btn {
+  padding: 15px 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  color: var(--rose);
+  background: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.yes-close-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Yes Hearts Burst */
+.yes-burst-heart {
+  position: fixed;
+  animation: yesBurstAnim 2s ease-out forwards;
+  pointer-events: none;
+  z-index: 10011;
+}
+
+@keyframes yesBurstAnim {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-300px) scale(0.5) rotate(360deg);
+  }
+}
+
+/* Proposal Responsive */
+@media (max-width: 768px) {
+  .proposal-card {
+    padding: 35px 20px;
+  }
+
+  .proposal-trigger-btn {
+    font-size: 1.4rem;
+    padding: 18px 35px;
+  }
+
+  .proposal-letter p {
+    font-size: 1rem;
+  }
+
+  .proposal-question-box {
+    padding: 25px 20px;
+  }
+
+  .proposal-yes-btn {
+    padding: 15px 45px;
+    font-size: 1.5rem;
+  }
+
+  .yes-emojis {
+    font-size: 2.5rem;
+    gap: 10px;
+  }
+
+  .yes-promise {
+    font-size: 1.1rem;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .proposal-heading {
+    font-size: 2rem;
+  }
+
+  .proposal-trigger-btn {
+    font-size: 1.2rem;
+    padding: 15px 25px;
+  }
+
+  .ring-box-lid,
+  .ring-box-base {
+    width: 70px;
+  }
+
+  .ring-box-lid {
+    height: 28px;
+  }
+
+  .ring-box-base {
+    height: 45px;
   }
 }
 

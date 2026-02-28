@@ -19,28 +19,27 @@ const questions = [
     correctAnswers: ["Yes, very much!", "Infinite ♾️", "More than anything!"], // All correct
   },
   {
+    question: "When did we first meet?",
+    options: [
+      "Gate No 3",
+      "Library",
+      "Football Ground",
+      "Department Building",
+      "B3 Plaza",
+    ],
+    correctAnswers: ["Library"],
+  },
+  {
     question: "When is our Anniversary?",
     options: [
-      "15 April 2025",
-      "14 April 2025",
-      "16 April 2025",
-      "1 April 2025",
+      "26 Jan 2023",
+      "25 Feb 2023",
+      "28 March 2023",
+      "28 Feb 2023",
       "15 May 2025",
       "20 March 2025",
     ],
-    correctAnswers: ["15 April 2025"],
-  },
-  {
-    question: "When did You officially propose for the first time?",
-    options: [
-      "8 May 2025",
-      "7 May 2025",
-      "9 May 2025",
-      "1 May 2025",
-      "18 May 2025",
-      "8 June 2025",
-    ],
-    correctAnswers: ["8 May 2025"],
+    correctAnswers: ["28 Feb 2023"],
   },
   {
     question: "What is our official 'Love Goal'?",
@@ -280,10 +279,10 @@ function initMainWebsite() {
   // ==========================================
 
   // Set the date you started dating (Year, Month (0-11), Day)
-  const RELATIONSHIP_START_DATE = new Date(2025, 3, 15); // April 15, 2025
+  const RELATIONSHIP_START_DATE = new Date(2023, 1, 28); // February 28, 2023
 
   // Typewriter text to display
-  const TYPEWRITER_TEXT = "Thinking of you... Lolly, so I built this for you.";
+  const TYPEWRITER_TEXT = "Thinking of you... Chinu, so I built this for you.";
 
   // Array of heart emojis for floating effect
   const HEART_EMOJIS = [
@@ -478,7 +477,7 @@ function initMainWebsite() {
       const previousMonth = new Date(
         endDate.getFullYear(),
         endDate.getMonth(),
-        0
+        0,
       );
       days += previousMonth.getDate();
     }
@@ -602,7 +601,7 @@ function initMainWebsite() {
     });
 
     const cards = document.querySelectorAll(
-      ".surprise-card, .countdown-item, .love-line"
+      ".surprise-card, .countdown-item, .love-line",
     );
     cards.forEach((card) => {
       card.addEventListener("click", function (e) {
@@ -753,10 +752,97 @@ function initMainWebsite() {
 
   window.addEventListener("scroll", handleScrollAnimations);
 
+  // ==========================================
+  // PROPOSAL SECTION
+  // ==========================================
+  const proposalTriggerBtn = document.getElementById("proposalTriggerBtn");
+  const proposalOverlay = document.getElementById("proposalOverlay");
+  const proposalCloseBtn = document.getElementById("proposalCloseBtn");
+  const proposalYesBtn = document.getElementById("proposalYesBtn");
+  const proposalYesOverlay = document.getElementById("proposalYesOverlay");
+  const yesCloseBtn = document.getElementById("yesCloseBtn");
+  const proposalStars = document.getElementById("proposalStars");
+
+  // Create twinkling stars for proposal background
+  function createProposalStars() {
+    if (!proposalStars) return;
+    proposalStars.innerHTML = "";
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement("div");
+      star.className = "proposal-star";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.setProperty("--duration", Math.random() * 3 + 1.5 + "s");
+      star.style.setProperty("--delay", Math.random() * 3 + "s");
+      star.style.width = Math.random() * 3 + 1 + "px";
+      star.style.height = star.style.width;
+      proposalStars.appendChild(star);
+    }
+  }
+
+  // Open Proposal
+  function openProposal() {
+    proposalOverlay.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    createProposalStars();
+    burstHearts(30);
+    playSound(celebrationSound);
+  }
+
+  // Close Proposal
+  function closeProposal() {
+    proposalOverlay.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  }
+
+  // Yes button - She said yes!
+  function handleProposalYes() {
+    proposalYesOverlay.classList.remove("hidden");
+
+    // Massive heart burst
+    const hearts = ["💕", "💖", "💗", "💓", "💝", "💘", "❤️", "💍", "🌹", "✨"];
+    for (let i = 0; i < 150; i++) {
+      setTimeout(() => {
+        const heart = document.createElement("span");
+        heart.className = "yes-burst-heart";
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.top = Math.random() * 100 + "%";
+        heart.style.fontSize = Math.random() * 25 + 15 + "px";
+        heart.style.position = "fixed";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2500);
+      }, i * 30);
+    }
+
+    playSound(celebrationSound);
+  }
+
+  // Close Yes overlay
+  function closeYesOverlay() {
+    proposalYesOverlay.classList.add("hidden");
+    proposalOverlay.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  }
+
+  // Proposal Event Listeners
+  if (proposalTriggerBtn) {
+    proposalTriggerBtn.addEventListener("click", openProposal);
+  }
+  if (proposalCloseBtn) {
+    proposalCloseBtn.addEventListener("click", closeProposal);
+  }
+  if (proposalYesBtn) {
+    proposalYesBtn.addEventListener("click", handleProposalYes);
+  }
+  if (yesCloseBtn) {
+    yesCloseBtn.addEventListener("click", closeYesOverlay);
+  }
+
   console.log("%c💖 Made with Love 💖", "font-size: 24px; color: #FF69B4;");
   console.log(
     "%cThis website was created to celebrate our beautiful love story.",
-    "font-size: 14px; color: #FF69B4;"
+    "font-size: 14px; color: #FF69B4;",
   );
 }
 
